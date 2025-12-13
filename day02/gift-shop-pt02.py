@@ -10,9 +10,9 @@ invalid_id = 0
 for start, end in id_ranges:
     for number in range(start, (end + 1)):
         s = str(number)
-        if len(s) % 2 == 0:
-            half = len(s) // 2
-            if s[:half] == s[half:]:
+        for length in range(1, (len(s) // 2 + 1)):
+            if (int(len(s) / (length))) * s[:(length)] == s:
                 invalid_id += number
+                break
 
 print(invalid_id)
